@@ -1,0 +1,12 @@
+{
+    "id":      "{A6E12C45-9F1B-4E3D-B271-3D9B8E2F1A40}",
+    "author":  "Satoshi (custom)",
+    "name":    "BridgePublisher",
+    "url":     "https://github.com/msjoho/ips-bridge-publisher",
+    "version": "1.0",
+    "build":   1,
+    "date":    1745452800,
+    "compatibility": {
+        "version": "7.0"
+    }
+}

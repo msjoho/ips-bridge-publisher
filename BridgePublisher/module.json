@@ -1,0 +1,13 @@
+{
+    "id":   "{C12B4E67-2F18-4A95-9E5A-7B8D4C3F1E20}",
+    "name": "Bridge Publisher",
+    "type": 3,
+    "vendor": "Satoshi",
+    "aliases": [],
+    "url": "https://github.com/msjoho/ips-bridge-publisher",
+    "parentRequirements": [
+        "{F7A0DD2E-7684-95C0-64C2-D2A9DC47577B}"
+    ],
+    "childRequirements": [],
+    "implemented": []
+}
