@@ -12,9 +12,10 @@ class BridgePublisher extends IPSModule
     public function Create()
     {
         parent::Create();
-
-        // Connect under the native MQTT Client splitter
-        $this->ConnectParent('{F7A0DD2E-7684-95C0-64C2-D2A9DC47577B}');
+        // Parent is connected automatically by IPS based on the
+        // parentRequirements / implemented declarations in module.json.
+        // We don't call ConnectParent because that would try to *create*
+        // a new MQTT Client splitter, which conflicts with the existing one.
     }
 
     public function ApplyChanges()
@@ -24,12 +25,6 @@ class BridgePublisher extends IPSModule
 
     /**
      * Publish an MQTT message via the parent splitter.
-     *
-     * @param string $topic   MQTT topic.
-     * @param string $payload Message body.
-     * @param int    $qos     0, 1, or 2.
-     * @param bool   $retain  Whether broker should retain the message.
-     * @return bool True on success.
      */
     public function Publish(string $topic, string $payload, int $qos = 0, bool $retain = false): bool
     {
