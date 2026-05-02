@@ -12,10 +12,12 @@ class BridgePublisher extends IPSModule
     public function Create()
     {
         parent::Create();
-        // Parent is connected automatically by IPS based on the
-        // parentRequirements / implemented declarations in module.json.
-        // We don't call ConnectParent because that would try to *create*
-        // a new MQTT Client splitter, which conflicts with the existing one.
+
+        // IPS 8.x appears to require at least one registered property
+        // for the data-flow slot to initialize correctly. We don't
+        // actually use this property — it's purely a hook so IPS sees
+        // the module as fully configured.
+        $this->RegisterPropertyString('Note', 'Internal MQTT publish helper');
     }
 
     public function ApplyChanges()
@@ -23,9 +25,6 @@ class BridgePublisher extends IPSModule
         parent::ApplyChanges();
     }
 
-    /**
-     * Publish an MQTT message via the parent splitter.
-     */
     public function Publish(string $topic, string $payload, int $qos = 0, bool $retain = false): bool
     {
         $packet = [
